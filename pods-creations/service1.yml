@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: service
+metadata:
+  name: service-test
+spec:
+ selector:
+   app: nginx
+ type: Nodeport
+ ports:
+ - name: http
+   port: 80
+   nodeport: 30001
+   protocal: TCP

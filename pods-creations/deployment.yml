@@ -1,0 +1,23 @@
+apiVersion: V1
+kind: Deployment
+metadata:
+  name: d-1
+spec:
+  replicas: 3
+  minReadySeconds: 30
+  strategy:
+    type: Rollingupdate
+    rollingupdate:
+      maxUnavailable: 1
+      maxsurge: 1
+  template:
+    metadata:
+      lables:
+        app: openmrs
+
+  spec:
+    containers:
+    - name: openmrs
+      image: nginx
+      ports:
+      - containerport: 8080

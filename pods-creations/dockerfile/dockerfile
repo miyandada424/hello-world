@@ -1,0 +1,7 @@
+FROM centos:latest
+MAINTAINER miyan
+RUN yum update all
+RUN yum install httpd
+EXPOSE 80
+
+
